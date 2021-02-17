@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="/css/index.css">
+	<link rel="stylesheet" href="/css/board/forum.css">
+</head>
+<body>
+   <th:block th:insert="/HeaderFooter::header">
+   </th:block>
+   <main>
+		<section>
+			<div class="forum flex-around">
+				<span>개발자 포럼</span>
+				<span>개발자들끼리 API 관련 개발시 궁금한 점을 서로 묻고 답할 수 있는 열린 공간입니다.</span>
+			</div>
+		</section>
+		<section>
+			<div class="">
+				<table class="forum-table" th:each="dto:${list}">
+					<tr>
+						<td>제목</td>
+						<td>내용</td>
+						<td>작성자</td>
+						<td>작성일</td>
+					</tr>
+					<tr>
+						<td>[[${dto.bno}]]</td>
+						<td>[[${dto.contents}]]</td>
+						<td>[[${dto.creatorId}]]</td>
+						<td>[[${dto.createdDate}]]</td>
+					</tr>
+				</table>
+			</div>
+		</section>
+	</main>
+   <th:block th:insert="/HeaderFooter::footer">
+   </th:block>
+</body>
+</html>
